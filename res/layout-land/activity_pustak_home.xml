@@ -1,0 +1,30 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PustakHome" >
+
+    <ImageButton
+        android:id="@+id/openbooks"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/getbooks"
+        android:layout_marginLeft="199dp"
+        android:contentDescription="@string/openbooks_contentDesc"
+        android:layout_toRightOf="@+id/getbooks"
+        android:background="@android:color/transparent"
+        android:src="@drawable/openbooks" />
+
+    <ImageButton
+        android:id="@+id/getbooks"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="24dp"
+        android:layout_marginLeft="199dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/getbooks_contentDesc"
+        android:src="@drawable/getbooks" />
+
+</RelativeLayout>

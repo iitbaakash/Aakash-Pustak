@@ -56,7 +56,7 @@ public class ReadBook extends SlidingActivity {
 		loadingBookDialog.setCancelable(false);
 		loadingBookDialog.setIndeterminate(false);
 		loadingBookDialog.setMessage("Loading Book...");
-		
+		setTitle(booktitle);
 		Log.d("Book Title", booktitle);
 		Log.d("Book Class", bookclass);
 		Log.d("Book Subject", booksubject);
@@ -255,13 +255,13 @@ public class ReadBook extends SlidingActivity {
 		    } 
 			catch (IOException e) {
 		    }
+			Log.d("ChapterContent", html);
+			wv.loadDataWithBaseURL("file://" + abspath + "Text/", html, "text/html", "UTF-8", null);
 			return null;
 		}
 		@Override
 		protected void onPostExecute(Void result) {
 			loadingBookDialog.dismiss();
-			Log.d("ChapterContent", html);
-			wv.loadDataWithBaseURL("file://" + abspath + "Text/", html, "text/html", "UTF-8", null);
 			super.onPostExecute(result);
 		}
 	}

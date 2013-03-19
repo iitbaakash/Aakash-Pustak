@@ -44,9 +44,9 @@ public class SwipeyTabs extends ViewGroup implements OnPageChangeListener {
 	// height of the indicator for the fronted tab
 	private int mTabIndicatorHeight = 3;
 	// color for the bottom bar, fronted tab
-	private int mBottomBarColor = 0xff96aa39;
+	private int mBottomBarColor = 0xff999999;
 	// text color for all other tabs
-	private int mTextColor = 0xff949494;
+	private int mTextColor = 0xffefeded;
 
 	// holds the positions of the fronted tabs
 	private int[] mFrontedTabPos;

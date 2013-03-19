@@ -12,3 +12,8 @@ v.2beta
 Upcoming Changes:
 1. Page sweep along with the slide pane for reading books.
 2. Scan local drive for .epub files.
+
+Librarys Used:
+1. epub-lib - https://github.com/psiegman/epublib
+2. DevsmartLib-Android (Horizontal ListView) - https://github.com/dinocore1/DevsmartLib-Android
+3. Sliding Menu - https://github.com/jfeinstein10/SlidingMenu

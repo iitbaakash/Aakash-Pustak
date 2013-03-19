@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+	<GridView
+    android:id="@+id/bookGrid"
+    android:numColumns="auto_fit"
+    android:gravity="left"
+    android:columnWidth="220dp"
+    android:verticalSpacing="10dp"
+    android:stretchMode="columnWidth"
+    android:longClickable="true"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+ 
+</GridView>
+    
+</FrameLayout>

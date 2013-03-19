@@ -27,4 +27,26 @@
         android:contentDescription="@string/getbooks_contentDesc"
         android:src="@drawable/getbooks" />
 
+    <com.devsmart.android.ui.HorizontalListView
+        android:id="@+id/listview"
+        android:layout_width="fill_parent"
+        android:layout_height="200dp"
+        android:layout_above="@+id/openbooks"
+        android:layout_alignLeft="@+id/getbooks"
+        android:layout_alignRight="@+id/openbooks"
+        android:layout_marginBottom="102dp"
+        android:background="@drawable/listview_border" >
+
+    </com.devsmart.android.ui.HorizontalListView>
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/listview"
+        android:layout_alignLeft="@+id/listview"
+        android:layout_marginBottom="52dp"
+        android:text="Quick Read"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
 </RelativeLayout>

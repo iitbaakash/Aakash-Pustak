@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.aakash.pustak"
-    android:versionCode="1"
-    android:versionName="1.0" >
+    android:versionCode="2"
+    android:versionName="2.0beta" >
 
     <uses-sdk
         android:minSdkVersion="14"
         android:targetSdkVersion="17" />
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@drawable/pusthak"
         android:label="@string/app_name"
         android:theme="@android:style/Theme.Holo" >
         <activity
@@ -21,6 +26,23 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="com.aakash.local.bookselection.LocalBookSelectionSwipe"
+            android:label="@string/title_activity_book_selection_swipe" >
+        </activity>
+        
+        <activity
+            android:name="com.aakash.online.bookselection.OnlineBookSelectionSwipe"
+            android:label="@string/title_activity_book_selection_swipe" >
+        </activity>
+        <activity
+            android:name="com.aakash.pustak.MainActivity"
+            android:label="@string/title_activity_main" >
+        </activity>
+        <activity
+            android:name="com.aakash.pustak.ReadBook"
+            android:label="@string/title_activity_read_book" >
         </activity>
     </application>
 

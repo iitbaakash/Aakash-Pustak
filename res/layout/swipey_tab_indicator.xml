@@ -1,0 +1,10 @@
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/swipey_tab"
+    android:layout_width="wrap_content"
+    android:layout_height="30dip"
+    android:paddingLeft="15dip"
+    android:paddingRight="15dip"
+    android:focusable="true"
+    android:singleLine="true"
+    android:textSize="14sp"
+    android:background="@drawable/swipey_tab_indicator" />

@@ -18,11 +18,12 @@
     <com.devsmart.android.ui.HorizontalListView
         android:id="@+id/listview"
         android:layout_width="fill_parent"
-        android:layout_height="150dp"
+        android:layout_height="180dp"
+        android:padding="15dp"
         android:layout_above="@+id/openbooks"
         android:layout_alignLeft="@+id/getbooks"
         android:layout_alignRight="@+id/openbooks"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/listview_border">
 
     </com.devsmart.android.ui.HorizontalListView>
@@ -33,7 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_marginBottom="26dp"
+        android:layout_marginBottom="10dp"
         android:layout_marginLeft="180dp"
         android:background="@android:color/transparent"
         android:contentDescription="@string/getbooks_contentDesc"

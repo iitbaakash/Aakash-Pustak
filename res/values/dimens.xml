@@ -17,6 +17,7 @@
 <resources>
     <dimen name="actionbar_home_width">180dp</dimen>
     <dimen name="list_padding">10dp</dimen>
+    <dimen name="webview_padding">10dp</dimen>
     <dimen name="activity_horizontal_margin">5dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="shadow_width">15dp</dimen>

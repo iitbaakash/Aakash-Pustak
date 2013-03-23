@@ -153,19 +153,24 @@ public class OnlineDatabase {
 			try{
 				BufferedReader reader = new BufferedReader(new InputStreamReader(is,"iso-8859-1"),8);
 		        String line = null;
+		        String bookProps[] = null;
 		        while ((line = reader.readLine()) != null) {
-		        		Log.d("Read line", line);
-		                String [] sp = line.split(",");
-		                OnlineBookItem book = new OnlineBookItem();
-		            	book.setId(Integer.parseInt(sp[0]));
-		            	book.setTitle(sp[1]);
-		            	book.setClassName(sp[2]);
-		            	book.setSubject(sp[3]);
-		            	Log.d("ClassNumber", Integer.parseInt(sp[4])+"");
-		            	book.setClassNo(Integer.parseInt(sp[4]));
-		            	book.setRepo(sp[5].replace("<br />", ""));
-		                bookList.add(book);
-		                
+		        	Log.d("Read line", line);
+		        	bookProps = line.split("<br />");
+		        }
+		        for(String s : bookProps) {
+		        	Log.d("Eachline", s);
+		        	String [] sp = s.split(",");
+	                OnlineBookItem book = new OnlineBookItem();
+	            	book.setId(Integer.parseInt(sp[0]));
+	            	Log.d("BookDetails", sp[0]+" "+sp[1]+" "+sp[2]+" "+sp[3]+" "+Integer.parseInt(sp[4])+" "+sp[5]);
+	            	book.setTitle(sp[1]);
+	            	book.setClassName(sp[2]);
+	            	book.setSubject(sp[3]);
+	            	Log.d("ClassNumber", Integer.parseInt(sp[4])+"");
+	            	book.setClassNo(Integer.parseInt(sp[4]));
+	            	book.setRepo(sp[5]);
+	                bookList.add(book);
 		        }
 		        is.close();
 			}

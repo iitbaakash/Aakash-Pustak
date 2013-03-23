@@ -21,6 +21,7 @@ import nl.siegmann.epublib.epub.EpubReader;
 import nl.siegmann.epublib.service.MediatypeService;
 import android.app.ActionBar;
 import android.app.ProgressDialog;
+import android.content.res.Configuration;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
@@ -79,8 +80,12 @@ public class ReadBook extends SlidingActivity {
 
 	@Override
 	public void onPostCreate(Bundle savedInstanceState) {
-		toggle();
 		super.onPostCreate(savedInstanceState);
+	}
+	
+	@Override
+	public void onConfigurationChanged(Configuration newConfig){        
+	    super.onConfigurationChanged(newConfig);
 	}
 	
 	@Override
@@ -160,7 +165,6 @@ public class ReadBook extends SlidingActivity {
 	    	tocView.setOnItemClickListener(new OnItemClickListener() {
 				public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				    Log.d("Pressed", position + "");
-				    toggle();
 					new LoadEpubChapter().execute(position);
 				}
 			});
@@ -246,7 +250,7 @@ public class ReadBook extends SlidingActivity {
 		        BufferedReader reader = new BufferedReader(new InputStreamReader(is));
 		        try {
 		            while ((line = reader.readLine()) != null) {
-		                html =   string.append(line + "\n").toString();
+		                html = string.append(line + "\n").toString();
 		            }
 		        } 
 		        catch (IOException e) {
@@ -255,6 +259,9 @@ public class ReadBook extends SlidingActivity {
 		    } 
 			catch (IOException e) {
 		    }
+			
+			html.replace("src=\"image", "src=\"../Images");
+            html.replace("href=\"css", "src=\"../Styles");
 			Log.d("ChapterContent", html);
 			wv.loadDataWithBaseURL("file://" + abspath + "Text/", html, "text/html", "UTF-8", null);
 			return null;

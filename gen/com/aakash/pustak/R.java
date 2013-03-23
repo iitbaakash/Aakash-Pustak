@@ -126,14 +126,15 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
     }
     public static final class dimen {
         public static final int actionbar_home_width=0x7f060004;
-        public static final int activity_horizontal_margin=0x7f060006;
-        public static final int activity_vertical_margin=0x7f060007;
+        public static final int activity_horizontal_margin=0x7f060007;
+        public static final int activity_vertical_margin=0x7f060008;
         public static final int list_padding=0x7f060005;
         public static final int menu_header_line=0x7f060002;
         public static final int menu_header_padding_top=0x7f060001;
         public static final int menu_icon_side=0x7f060003;
         public static final int menu_item_padding=0x7f060000;
-        public static final int shadow_width=0x7f060008;
+        public static final int shadow_width=0x7f060009;
+        public static final int webview_padding=0x7f060006;
     }
     public static final class drawable {
         public static final int color_overlay=0x7f020000;
@@ -148,7 +149,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int list_section_divider_holo_custom=0x7f020009;
         public static final int listview_border=0x7f02000a;
         public static final int openbooks=0x7f02000b;
-        public static final int pusthak=0x7f02000c;
+        public static final int pustak=0x7f02000c;
         public static final int shadow=0x7f02000d;
         public static final int swipey_tab_indicator=0x7f02000e;
         public static final int transparent_overlay=0x7f02000f;

@@ -15,14 +15,15 @@ int attr viewAbove 0x7f010000
 int attr viewBehind 0x7f010001
 int color holo_blue_bright 0x7f050000
 int dimen actionbar_home_width 0x7f060004
-int dimen activity_horizontal_margin 0x7f060006
-int dimen activity_vertical_margin 0x7f060007
+int dimen activity_horizontal_margin 0x7f060007
+int dimen activity_vertical_margin 0x7f060008
 int dimen list_padding 0x7f060005
 int dimen menu_header_line 0x7f060002
 int dimen menu_header_padding_top 0x7f060001
 int dimen menu_icon_side 0x7f060003
 int dimen menu_item_padding 0x7f060000
-int dimen shadow_width 0x7f060008
+int dimen shadow_width 0x7f060009
+int dimen webview_padding 0x7f060006
 int drawable color_overlay 0x7f020000
 int drawable cover 0x7f020001
 int drawable defaultshadow 0x7f020002
@@ -35,7 +36,7 @@ int drawable image_32x32 0x7f020008
 int drawable list_section_divider_holo_custom 0x7f020009
 int drawable listview_border 0x7f02000a
 int drawable openbooks 0x7f02000b
-int drawable pusthak 0x7f02000c
+int drawable pustak 0x7f02000c
 int drawable shadow 0x7f02000d
 int drawable swipey_tab_indicator 0x7f02000e
 int drawable transparent_overlay 0x7f02000f

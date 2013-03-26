@@ -22,14 +22,17 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
@@ -204,6 +207,45 @@ public class PustakHome extends Activity {
 		return true;
 	}
 	
+	@Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+    	
+        // Handle item selection
+        switch (item.getItemId()) {
+        	
+        case R.id.menu_openBooks:
+        	launchFileManager();
+        	return true;        	
+        	
+        default:
+            return super.onOptionsItemSelected(item);
+        }
+    }
+	
+	@Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    	super.onActivityResult(requestCode, resultCode, data);
+
+    	if ( resultCode == RESULT_OK && data != null) {
+    		// obtain the filename
+    		Uri fileUri = data.getData();
+    		if (fileUri != null) {
+    			String filePath = fileUri.getPath();
+    			Log.d(" Load book Filepath", filePath);
+    			if (filePath != null) {
+    				loadNewBook(filePath);  
+    			}
+    		}
+    	}	
+	}
+	
+	public void loadNewBook(String file) {
+		Intent readExt = new Intent(this, ReadBook.class);
+		readExt.putExtra("file", file);
+		readExt.putExtra("load", "external");
+		startActivity(readExt);
+	}
+	
 	/*class LoadBookLists extends AsyncTask<Void, Void, Void> {	
 		String html = null, line;
 		StringBuilder string = new StringBuilder();
@@ -294,6 +336,17 @@ public class PustakHome extends Activity {
 			startActivity(selectClass);
 		}
 	}
+	
+	private void launchFileManager() {
+    	Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+        intent.setType("file/*");
+        intent.addCategory(Intent.CATEGORY_OPENABLE);
+        try {
+        	startActivityForResult(intent, 2);
+        } catch (ActivityNotFoundException e) {
+        	Toast.makeText(this, "No file manager avaliable.", Toast.LENGTH_SHORT).show();
+        }
+    }
 	
 	public String capitalize(String input) {
 		StringBuilder b = new StringBuilder(input);

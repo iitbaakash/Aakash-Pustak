@@ -4,8 +4,9 @@
     <string name="app_name">Aakash Pustak</string>
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
-    <string name="openbooks_contentDesc">Open books from local storage</string>
-    <string name="getbooks_contentDesc">Download books</string>
+    <string name="menu_openBooks">Load Books</string>
+    <string name="openbooks_contentDesc">Local NCERT Books</string>
+    <string name="getbooks_contentDesc">Download NCERT Books</string>
     <string name="title_activity_book_selection_swipe">Select Book</string>
     <string name="action_settings">Settings</string>
     <string name="cover_image">Cover Image</string>

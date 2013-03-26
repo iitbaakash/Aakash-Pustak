@@ -5,5 +5,11 @@
         android:orderInCategory="100"
         android:showAsAction="never"
         android:title="@string/menu_settings"/>
+    
+    <item
+        android:id="@+id/menu_openBooks"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="@string/menu_openBooks"/>
 
 </menu>

@@ -40,7 +40,7 @@ int drawable pustak 0x7f02000c
 int drawable shadow 0x7f02000d
 int drawable swipey_tab_indicator 0x7f02000e
 int drawable transparent_overlay 0x7f02000f
-int id action_settings 0x7f040015
+int id action_settings 0x7f040016
 int id bookContentWeb 0x7f040006
 int id bookCover 0x7f040009
 int id bookGrid 0x7f04000c
@@ -51,6 +51,7 @@ int id fullscreen 0x7f040001
 int id getbooks 0x7f040003
 int id listview 0x7f040004
 int id margin 0x7f040000
+int id menu_openBooks 0x7f040015
 int id menu_settings 0x7f040014
 int id openbooks 0x7f040002
 int id slidingmenulayout 0x7f04000e
@@ -79,16 +80,17 @@ int menu activity_pustak_home 0x7f0a0000
 int menu book_selection_swipe 0x7f0a0001
 int menu main 0x7f0a0002
 int menu read_book 0x7f0a0003
-int string action_settings 0x7f070006
+int string action_settings 0x7f070007
 int string app_name 0x7f070000
-int string cover_image 0x7f070007
-int string getbooks_contentDesc 0x7f070004
+int string cover_image 0x7f070008
+int string getbooks_contentDesc 0x7f070005
 int string hello_world 0x7f070001
+int string menu_openBooks 0x7f070003
 int string menu_settings 0x7f070002
-int string openbooks_contentDesc 0x7f070003
-int string title_activity_book_selection_swipe 0x7f070005
-int string title_activity_main 0x7f070008
-int string title_activity_read_book 0x7f070009
+int string openbooks_contentDesc 0x7f070004
+int string title_activity_book_selection_swipe 0x7f070006
+int string title_activity_main 0x7f070009
+int string title_activity_read_book 0x7f07000a
 int style AppBaseTheme 0x7f090000
 int style AppTheme 0x7f090001
 int[] styleable SlidingMenu { 0x7f010000, 0x7f010001, 0x7f010002, 0x7f010003, 0x7f010004, 0x7f010005, 0x7f010006, 0x7f010007, 0x7f010008, 0x7f010009 }

@@ -155,7 +155,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int transparent_overlay=0x7f02000f;
     }
     public static final class id {
-        public static final int action_settings=0x7f040015;
+        public static final int action_settings=0x7f040016;
         public static final int bookContentWeb=0x7f040006;
         public static final int bookCover=0x7f040009;
         public static final int bookGrid=0x7f04000c;
@@ -166,6 +166,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int getbooks=0x7f040003;
         public static final int listview=0x7f040004;
         public static final int margin=0x7f040000;
+        public static final int menu_openBooks=0x7f040015;
         public static final int menu_settings=0x7f040014;
         public static final int openbooks=0x7f040002;
         public static final int slidingmenulayout=0x7f04000e;
@@ -200,16 +201,17 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int read_book=0x7f0a0003;
     }
     public static final class string {
-        public static final int action_settings=0x7f070006;
+        public static final int action_settings=0x7f070007;
         public static final int app_name=0x7f070000;
-        public static final int cover_image=0x7f070007;
-        public static final int getbooks_contentDesc=0x7f070004;
+        public static final int cover_image=0x7f070008;
+        public static final int getbooks_contentDesc=0x7f070005;
         public static final int hello_world=0x7f070001;
+        public static final int menu_openBooks=0x7f070003;
         public static final int menu_settings=0x7f070002;
-        public static final int openbooks_contentDesc=0x7f070003;
-        public static final int title_activity_book_selection_swipe=0x7f070005;
-        public static final int title_activity_main=0x7f070008;
-        public static final int title_activity_read_book=0x7f070009;
+        public static final int openbooks_contentDesc=0x7f070004;
+        public static final int title_activity_book_selection_swipe=0x7f070006;
+        public static final int title_activity_main=0x7f070009;
+        public static final int title_activity_read_book=0x7f07000a;
     }
     public static final class style {
         /** 

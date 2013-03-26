@@ -49,18 +49,12 @@ public class ReadBook extends SlidingActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		booktitle = getIntent().getStringExtra("book");
-		bookclass = getIntent().getStringExtra("class");
-		booksubject = getIntent().getStringExtra("subject");
 		
 		loadingBookDialog = new ProgressDialog(this);
 		loadingBookDialog.setCancelable(false);
 		loadingBookDialog.setIndeterminate(false);
 		loadingBookDialog.setMessage("Loading Book...");
-		setTitle(booktitle);
-		Log.d("Book Title", booktitle);
-		Log.d("Book Class", bookclass);
-		Log.d("Book Subject", booksubject);
+		
 		setContentView(R.layout.activity_read_book);
 		
 		setBehindContentView(R.layout.toclists);
@@ -75,6 +69,22 @@ public class ReadBook extends SlidingActivity {
 		ActionBar actionBar = getActionBar();
 		actionBar.setDisplayHomeAsUpEnabled(true);
 		
+		if(!getIntent().getStringExtra("load").equals("external")) {
+			booktitle = getIntent().getStringExtra("book");
+			bookclass = getIntent().getStringExtra("class");
+			booksubject = getIntent().getStringExtra("subject");
+			abspath = PUSTHAK_PATH+bookclass+"/"+booksubject+"/"+booktitle;
+			
+			
+		}
+		else {
+			String path = getIntent().getStringExtra("file");
+			abspath = path.substring(0, path.lastIndexOf('/'));
+			booktitle = path.substring(path.lastIndexOf('/')+1, path.lastIndexOf('.'));
+			//Log.d("abspath", abspath);
+			//Log.d("booktitle", booktitle);
+		}
+		setTitle(booktitle);
 		updateContentView();
 	}
 
@@ -142,12 +152,11 @@ public class ReadBook extends SlidingActivity {
 	public void updateContentView() {
 		try {
 			wv = (WebView) findViewById(R.id.bookContentWeb);
-			abspath = PUSTHAK_PATH+bookclass+"/"+booksubject+"/"+booktitle+"/";
 		   	File filePath = new File(abspath+"/"+booktitle+".epub");   
+		   	Log.d("is file present", filePath.exists() + "");
 		   	InputStream epubInputStream = new BufferedInputStream(new FileInputStream(filePath));
 		   	book = (new EpubReader()).readEpub(epubInputStream);
 		   	DownloadResource(abspath);
-		   	
 		   	final List<TocEntry> tocList = getTableOfContents();
 	    	if ( tocList == null || tocList.isEmpty() ) {
 	    		return;
@@ -164,19 +173,16 @@ public class ReadBook extends SlidingActivity {
 	    	
 	    	tocView.setOnItemClickListener(new OnItemClickListener() {
 				public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-				    Log.d("Pressed", position + "");
+				   //Log.d("Pressed", position + "");
 					new LoadEpubChapter().execute(position);
 				}
 			});
-		   			
-	    	String html = "<html><head><title>"+book.getTitle()+"</title><body><img src='../"+ book.getCoverImage().getHref() +"'></body></html>";
-		   	if(new File(abspath + book.getCoverImage().getHref()).exists()) Log.d("File", "true");
 		  
 		   	WebSettings settings = wv.getSettings();
 		   	settings.setJavaScriptEnabled(true);
 		   	settings.setBuiltInZoomControls(true);
 		   	
-		   	wv.loadDataWithBaseURL("file://" + abspath + "Text/", html, "text/html", "UTF-8", null);
+		   	new LoadEpubChapter().execute(0);
 
 		 }
 		 catch (IOException e) {
@@ -194,20 +200,33 @@ public class ReadBook extends SlidingActivity {
 				 if ((rs.getMediaType() == MediatypeService.JPG) || (rs.getMediaType() == MediatypeService.PNG) || (rs.getMediaType() == MediatypeService.GIF) || rs.getMediaType() == MediatypeService.CSS || rs.getMediaType() == MediatypeService.TTF || rs.getMediaType() == MediatypeService.OPENTYPE || rs.getMediaType() == MediatypeService.WOFF)  {
 					 String res = rs.getHref();
 					 File paths = null;
+					 //Log.d("res", res);
 					 if(res.contains("Images/")) { 
-						paths = new File(directory+File.separator+"Images");
+						paths = new File(directory+"/Images");
 					 	paths.mkdirs();
 					 }
+					 if(res.contains("images/")) {
+							paths = new File(directory+"/images");
+						 	paths.mkdirs();
+					 }
+					 if(res.contains("css/")) {
+							paths = new File(directory+"/css");
+						 	paths.mkdirs();
+					 }
+					 if(res.contains("font/")) {
+							paths = new File(directory+"/font");
+						 	paths.mkdirs();
+					 }
 					 if(res.contains("Fonts/")) {
-						 paths = new File(directory+File.separator+"Fonts");
+						 paths = new File(directory+"/Fonts");
 					 	 paths.mkdirs();
 					 }
 					 if(res.contains("Styles/")) {
-					 paths = new File(directory+File.separator+"Styles");
+					 paths = new File(directory+"/Styles");
 					 paths.mkdirs();
 					 }
-					 File oppath1 = new File(directory+File.separator+res);
-					 
+					 File oppath1 = new File(directory+"/"+res);
+					 //Log.d("oppath1", oppath1.getAbsolutePath() + " " + oppath1.exists());					 
 					 if(oppath1.exists() == false) {
 						 oppath1.createNewFile();
 						 FileOutputStream fos1 = new FileOutputStream(oppath1);
@@ -218,7 +237,7 @@ public class ReadBook extends SlidingActivity {
 			 }
 		 } 
 		 catch (IOException e) {
-			 Log.e("error", e.getMessage());
+			 Log.e("error download resorce", e.getMessage());
 		 }
 	}
 	
@@ -260,15 +279,14 @@ public class ReadBook extends SlidingActivity {
 			catch (IOException e) {
 		    }
 			
-			html.replace("src=\"image", "src=\"../Images");
-            html.replace("href=\"css", "src=\"../Styles");
-			Log.d("ChapterContent", html);
-			wv.loadDataWithBaseURL("file://" + abspath + "Text/", html, "text/html", "UTF-8", null);
+			//Log.d("ChapterContent", html);
+			wv.loadDataWithBaseURL("file://" + abspath + "/Text/", html, "text/html", "UTF-8", null);
 			return null;
 		}
 		@Override
 		protected void onPostExecute(Void result) {
 			loadingBookDialog.dismiss();
+			toggle();
 			super.onPostExecute(result);
 		}
 	}

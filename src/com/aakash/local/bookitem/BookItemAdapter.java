@@ -1,12 +1,8 @@
 package com.aakash.local.bookitem;
 
 import java.io.ByteArrayOutputStream;
-import java.io.FileInputStream;
-import java.io.IOException;
 import java.util.List;
 
-import nl.siegmann.epublib.domain.Book;
-import nl.siegmann.epublib.epub.EpubReader;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.graphics.Bitmap;
